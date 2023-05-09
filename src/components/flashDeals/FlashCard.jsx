@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
-
+import { BsPlus } from "react-icons/bs";
+import "./flashcard.css";
 
 const SampleNextArrow = (props) => {
   const { onClick } = props;
@@ -25,10 +26,10 @@ const SamplePrevArrow = (props) => {
 };
 
 const FlashCard = ({ productItems, addToCart }) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const increment = () => {
-    setCount(count + 1)
-  }
+    setCount(count + 1);
+  };
   const settings = {
     dots: false,
     infinite: true,
@@ -66,9 +67,13 @@ const FlashCard = ({ productItems, addToCart }) => {
                       {/* step : 3  
                      if hami le button ma click garyo bhane mathi ko icon ma bagde ma number increase hunxa
                     */}
-                      <button onClick={() => addToCart(productItems)}> 
-                      <i className="fa fa-plus"></i>
-                      </button>
+
+                      <BsPlus
+                        className="clickplus"
+                        onClick={() => {
+                          return addToCart(productItems);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

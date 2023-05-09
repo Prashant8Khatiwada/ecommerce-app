@@ -1,78 +1,201 @@
 /*----------head----------*/
 .head {
     background-color: #0f3460;
-    padding: 10px 0;
-    color:  #fff;
+    padding: 5px 0;
+    color: #fff;
+    height: 2.2rem;
 }
-.head  i {
-    margin-right: 10px;
+
+.left {
+    float: left;
 }
+
+.left label {
+    margin-left: 30px;
+}
+
+.right {
+    float: right;
+}
+
+.head .icon {
+    position: absolute;
+    margin-top: 3px;
+}
+
 
 .head label {
     margin-right: 30px;
     font-size: 13px;
 }
-/*----------head----------*/
+
+
+.logo img {
+    height: 5.2rem;
+    width: 5rem;
+    margin-left: 3rem;
+}
+
+
+/*----------head Finished----------*/
+
 
 /*----------Search---------*/
 .search {
-    padding: 5px 0;
+    position: sticky;
+    background-color: #fff;
+    top: 0;
+    padding: 5px 0 0 2rem;
+    z-index: 10;
+    height: 6rem;
 }
 
-.search .logo img {
-    width: 80px;
-    height: auto;
+.search.active {
+    box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.1);
+    transition: 0.5s all ease-in;
 }
-.search .width{
-    width: 20%;
-    
-}
-.search-box{
-    width: 60%;
-    border: 2px solid rgba(0, 0, 0, 0.1);
+
+.search-bar {
+    width: 50%;
     border-radius: 10px;
-    height: 8vh;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
-.search-box i{
-    width: 5%;
-    text-align: center;
-    font-size: 20px;
-    opacity: 0.5;
-    padding: 15px 20px;
-    font-size: 17px;
+
+.search-bar input {
+    padding: 8px 10px;
+    padding-left: 3rem;
+    width: 83%;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
 }
-.search-box input {
-    width: 100%;
-    padding: 10px;
+
+
+
+input:focus {
+    border: none;
+    outline: none;
 }
-::placeholder{
-    font-size: 15px;
+
+input::content {
+    border: none;
+    outline: none;
 }
- 
-.search-box span {
+
+.search-icon {
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: .5rem;
+    position: absolute;
+    border: none;
+    font-size: 1.5rem;
+    margin-top: 8px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.search-icon:hover {
+    color: black;
+    transition: all 0.3s ease-in;
+}
+
+
+.search-bar span {
+    cursor: pointer;
     width: 20%;
-    opacity: 0.5;
+    color: #219ebc;
     padding: 10px;
 
 }
+
+.dropdown {
+    display: none;
+}
+
+.dropdown-active {
+    display: block;
+    position: absolute;
+    width: 44.9%;
+    height: fit-content;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: .5rem;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+/*----------Search Finished---------*/
+
 .cart {
     position: relative;
 }
+
+.icon i {
+    color: rgba(0, 0, 0, 0.534);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.icon {
+    margin-bottom: 20px;
+}
+
 .search .cart span {
     position: absolute;
-    top: -10%;
-    right: 0;
+    top: 15%;
+    right: -10%;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     text-align: center;
+    padding-top: 2.2px;
     background-color: #e94560;
     font-size: 12px;
     color: #fff;
 }
+
 .search .f_flex {
     justify-content: end;
 }
+
+@media screen and (max-width:1148px) {
+    .search-bar input {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .search .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .search-bar {
+        width: 300%;
+    }
+
+    /* .logo img {
+      height: 3rem;
+      width: 2.5rem;
+      margin: 1rem .5rem;
+    } */
+
+    .logo {
+        display: none;
+    }
+
+    .icon {
+        margin-left: 6rem;
+    }
+
+    .head {
+        display: none;
+    }
+
+
+}
+
 /*----------Search----------*/
 
 .categories {
@@ -82,97 +205,105 @@
     height: 6vh;
     margin-top: 5px;
 }
+
 .categories span {
     margin-right: 20px;
     font-size: 30px;
     margin-top: 10px;
 }
+
 .categories h4 {
     font-weight: 500;
 }
-.categories h4 i{
+
+.categories h4 i {
     margin-left: 10px;
 }
+
 header {
     height: 8vh;
     box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
 }
+
 header ul {
     line-height: 8vh;
 }
+
 header ul li {
     margin-left: 30px;
 }
+
 header ul li a {
     transition: 0.5s;
     font-size: 15px;
     font-weight: 400;
 }
+
 header ul li a:hover {
     color: #e94560;
 }
+
 .open {
     display: none;
 }
-.search.active{
-    position:fixed;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.1);
-    transition: 0.5s;
-}
+
 
 @media (max-width: 768px) {
     header ul {
-      padding-top: 30px;
+        padding-top: 30px;
     }
+
     .nav-links-mobile {
-      position: absolute;
-      display: block;
-      list-style: none;
-      box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-      left: 0;
-      top: 0;
-      transition: all 0.5s ease-in-out;
-      width: 60%;
-      height: 100vh;
-      background-color: white;
-      z-index: 888;
+        position: absolute;
+        display: block;
+        list-style: none;
+        box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        left: 0;
+        top: 0;
+        transition: all 0.5s ease-in-out;
+        width: 60%;
+        height: 100vh;
+        background-color: white;
+        z-index: 888;
     }
+
     header ul li {
-      width: 100%;
-      transition: all 0.5s ease-in-out;
-      text-transform: uppercase;
-      line-height: 70px;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+        text-transform: uppercase;
+        line-height: 70px;
     }
+
     header .link {
-      display: none;
+        display: none;
     }
+
     .close,
     .open {
-      position: absolute;
-      top: 35px;
-      right: 20px;
-      color: #ff014f;
-      display: block;
-      font-size: 25px;
-      z-index: 999;
+        position: absolute;
+        top: 35px;
+        right: 20px;
+        color: #ff014f;
+        display: block;
+        font-size: 25px;
+        z-index: 999;
     }
+
     .close {
-      right: 45%;
+        right: 45%;
     }
+
     .close.home-btn {
-      background: linear-gradient(145deg, #e2e8ec, #ffffff);
-      color: #ff014f;
-      border-radius: 50%;
-      padding: 0;
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        color: #ff014f;
+        border-radius: 50%;
+        padding: 0;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
     }
+
     .header.active {
-      height: 10vh;
+        height: 10vh;
     }
-  }
+}

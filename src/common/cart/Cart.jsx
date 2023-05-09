@@ -6,16 +6,15 @@ const Cart = ({ cartItem, addToCart, decreaseqty }) => {
     (price, item) => price + item.qty * item.price,
     0
   );
+
   return (
     <>
       <section className="cart-items">
-      
-      <div className="icon">
+        <div className="icon">
           <i className="fa-solid fa-cart-shopping"></i>
-      </div>
-      <h1 className="heading"> My cart</h1>
+        </div>
+        <h1 className="heading"> My cart</h1>
         <div className="container d_flex">
-
           {/*if no products in cart*/}
           <div className="cart-details">
             {cartItem.length === 0 && (
