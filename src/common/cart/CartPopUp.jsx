@@ -85,8 +85,8 @@ function CartPopUp({
 
         <div className="view-cart">
           <Link to="./Cart">
-            <button className="checkout">Checkout Now</button>
-            <button className="view">View Cart</button>
+            <button className="checkout" onClick={cartpopupclose}>Checkout Now</button>
+            <button className="view" onClick={cartpopupclose}>View Cart</button>
           </Link>
         </div>
       </div>
