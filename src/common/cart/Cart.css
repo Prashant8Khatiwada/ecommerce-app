@@ -117,3 +117,94 @@
   margin-top: 30px;
   height: 130px;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+:root {
+    --empty-border: #8ee0b6;
+    --fill-border: blue;
+}
+
+.container {
+  align-self: center;
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 50%;
+}
+
+.progress-container::before {
+    content: '';
+    background-color: var(--empty-border);
+    position: absolute;
+    height: 4px;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: -1;
+    transition: 0.8s ease;
+}
+
+.progress {
+    background-color: #e94560;
+    position: absolute;
+    height: 4px;
+    top: 50%;
+    width: 0%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: -1;
+    transition: 0.2s ease;
+}
+
+.circle {
+    border: 3.5px solid #86cea9;
+    display: inline-flex;
+    border-radius: 300px;
+    cursor: pointer;
+    box-shadow: unset;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0.5rem 1.5rem;
+    color: #e94560;
+    background-color: #f6f9fc;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.4s all ease-in;
+}
+
+.circle.active {
+    border-color: #e94560;
+    background-color: #e94560;
+    color: white;
+}
+
+.btn {
+    background-color: var(--fill-border);
+    padding: 5px 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0;
+
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:disabled {
+    background-color: var(--empty-border);
+    cursor: not-allowed;
+}

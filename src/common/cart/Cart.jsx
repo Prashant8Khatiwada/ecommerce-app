@@ -1,4 +1,4 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import "./Cart.css";
 
 const Cart = ({ cartItem, addToCart, decreaseqty }) => {
@@ -7,13 +7,109 @@ const Cart = ({ cartItem, addToCart, decreaseqty }) => {
     0
   );
 
+  // ========== FOR PROGRESS STEP ===========
+  const [currentActive, setCurrentActive] = useState(1);
+
+  const nextClick = () => {
+    setCurrentActive((prevActive) => {
+      let nextActive = prevActive + 1;
+      if (nextActive >= 5) {
+        nextActive = 5;
+      }
+      return nextActive;
+    });
+  };
+
+  const previousClick = (e) => {
+    e.preventDefault();
+    setCurrentActive((prevActive) => {
+      let updatedActive = prevActive - 1;
+      if (updatedActive < 1) {
+        updatedActive = 1;
+      }
+      return updatedActive;
+    });
+  };
+
+  useEffect(() => {
+    
+    const circles = document.querySelectorAll(".circle");
+    const progress = document.getElementById("progress");
+
+    const update = () => {
+      circles.forEach((circle, idx) => {
+        if (idx < currentActive) {
+          circle.classList.add("active");
+        } else {
+          circle.classList.remove("active");
+        }
+      });
+
+      const actives = document.querySelectorAll(".active");
+      progress.style.width = `${
+        ((actives.length - 1) / (circles.length - 1)) * 100
+      }%`;
+    };
+
+    update();
+  }, [currentActive]);
+
+  const steps = [
+    {
+      label: "Address",
+      step: 1,
+    },
+    {
+      label: "Shipping",
+      step: 2,
+    },
+    {
+      label: "Payment",
+      step: 3,
+    },
+    {
+      label: "Summary",
+      step: 4,
+    },
+  ];
+
   return (
     <>
+
+{/* ========== FOR PROGRESS STEP =========== */}
+<div className="container">
+      <div className="progress-container">
+        <div className="progress" id="progress"></div>
+        {steps.map(({ step, label }) => (
+          <div className="circle">
+            {step}. {label}
+          </div>
+        ))}
+      </div>
+      <button
+        className="btn"
+        id="prev"
+        disabled={currentActive === 1}
+        onClick={previousClick}
+      >
+        Prev
+      </button>
+      <button
+        className="btn"
+        id="next"
+        disabled={currentActive === 4}
+        onClick={nextClick}
+      >
+        Next
+      </button>
+    </div>
+
+
+
       <section className="cart-items">
-        <div className="icon">
-          <i className="fa-solid fa-cart-shopping"></i>
-        </div>
-        <h1 className="heading"> My cart</h1>
+       
+
+
         <div className="container d_flex">
           {/*if no products in cart*/}
           <div className="cart-details">
