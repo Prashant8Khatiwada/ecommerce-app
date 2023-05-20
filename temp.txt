@@ -1,0 +1,165 @@
+{cartItem.map((item) => {
+    const productQty = item.price * item.qty;
+
+    return (
+      <div className="cart-list " key={item.id}>
+        <div className="img">
+          <img src={item.cover} alt="" />
+        </div>
+
+        <div className="cart-details">
+          <h3>{item.name}</h3>
+          <h4>
+            ${item.price}.00 * {item.qty}
+            <span>${productQty}.00</span>
+          </h4>
+        </div>
+
+        {/* ========== CART BUTTON========== */}
+        <div className="cart-items-function">
+          <div className="removeCart">
+            <button className="removeCart">
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          {/* stpe: 5 
+        quantity increase ra decrease garne
+        */}
+          <div className="cartControl d_flex">
+            <button
+              className="incCart"
+              onClick={() => addToCart(item)}
+            >
+              <i className="fa-solid fa-plus"></i>
+            </button>
+            <button
+              className="desCart"
+              onClick={() => decreaseqty(item)}
+            >
+              <i className="fa-solid fa-minus"></i>
+            </button>
+          </div>
+        </div>
+
+        <div className="cart-item-price"></div>
+      </div>
+    );
+  })}
+
+  <button
+    className="btn"
+    id="prev"
+    disabled={currentActive === 1}
+    onClick={previousClick}
+  >
+    Prev
+  </button>
+  <button
+    className="btn"
+    id="next"
+    disabled={currentActive === 4}
+    onClick={nextClick}
+  >
+    Next
+  </button>
+
+
+<div className="cart-total product">
+  <h2>Cart Summary</h2>
+  <div className=" d_flex">
+    <h4>Total Price :</h4>
+    <h3>${totalprice}.00</h3>
+  </div>
+</div>
+
+
+
+
+
+.cart-list {
+    background: white;
+    display: flex;
+    gap: 10px 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cart-items .img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cart-items img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .cart-items .cart-details h3 {
+    font-size: 20px;
+    font-weight: 500;
+    /* margin-top: 20px; */
+  }
+  
+  .cart-items .cart-details h4 {
+    font-size: 15px;
+    font-weight: 400;
+    /* margin-top: 50px; */
+    color: grey;
+  }
+  
+  .cart-items h4 span {
+    color: #e94560;
+    margin-left: 20px;
+    font-weight: 500;
+  }
+  
+  .removeCart {
+    background: none;
+    font-size: 25px;
+    text-align: right;
+    /* margin-right: 10px; */
+  }
+  
+  .cartControl {
+    margin-top: 50px;
+  }
+  
+  .cartControl button {
+    width: 40px;
+    height: 40px;
+    /* margin: 10px; */
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  
+  .incCart {
+    background: none;
+    border: 2px solid rgb(3 0 71 / 9%);
+    color: #e94560;
+  }
+  
+  .desCart {
+    background: #f6f9fc;
+  }
+  
+  .cart-total h4 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+  .cart-total h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #e94560;
+  }
+  
+  .cart-total h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(3 0 71 / 9%);
+    padding-bottom: 10px;
+    color: #e94560;
+  }
+  
+ 
+  

@@ -90,12 +90,9 @@ const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
 
         <section className="cart-function">
           {/*if no products in cart*/}
-          {/* {cartItem.length === 0 && (
-                <h1 className="no-items ">
-                  {" "}
-                  No items are added in cart
-                </h1>
-              )} */}
+          {cartItem.length === 0 && (
+            <h1 className="no-items "> No items are added in cart</h1>
+          )}
 
           {/*cart ma items xa bhane show garne kam yaha gariraxa*/}
           <div className="cart-items">
@@ -169,6 +166,27 @@ const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
             >
               Next
             </button>
+          </div>
+
+          <div className="total-price">
+            <div className="header">
+              <h2>Cart Summary</h2>
+              <hr />
+            </div>
+            <div className=" d_flex">
+              <h4>Total Price :</h4>
+              <h4>${totalprice}.00</h4>
+            </div>
+            <div className="comment">
+              <span>Additional comment</span>
+              <textarea
+                name="message"
+                rows="7"
+                placeholder="Your Message"
+                required
+              />
+            </div>
+            <button className="checkout">Checkout Now</button>
           </div>
         </section>
       </div>
