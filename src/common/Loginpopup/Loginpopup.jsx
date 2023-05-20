@@ -3,8 +3,14 @@ import "./Loginpopup.css";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { CgGoogle } from "react-icons/cg";
 import { GrFormClose } from "react-icons/gr";
+import { useHistory } from "react-router";
 
 const Loginpopup = ({ loginpopupclose }) => {
+  const history = useHistory();
+
+  const changepage = () => {
+    history.push("/signup");
+  };
   return (
     <div className="loginpopup-container">
       <div className="loginpopoup-items">
@@ -41,9 +47,7 @@ const Loginpopup = ({ loginpopupclose }) => {
 
         <div className="sign-up">
           <label> Don't have accout?</label>{" "}
-          <span>
-            <a href="#">Sign Up</a>
-          </span>
+          <span onClick={changepage}>Sign Up</span>
         </div>
 
         <div className="forget-pwd">

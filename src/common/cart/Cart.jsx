@@ -46,10 +46,9 @@ const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
           circle.classList.remove("active");
         }
       });
-
       const actives = document.querySelectorAll(".active");
       progress.style.width = `${
-        ((actives.length - 1) / (circles.length - 1)) * 100
+        ((actives.length - 2) / (circles.length - 1)) * 100
       }%`;
     };
 
@@ -58,11 +57,11 @@ const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
 
   const steps = [
     {
-      label: "Address",
+      label: "Cart",
       step: 1,
     },
     {
-      label: "Shipping",
+      label: "Details",
       step: 2,
     },
     {
@@ -70,7 +69,7 @@ const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
       step: 3,
     },
     {
-      label: "Summary",
+      label: "Review",
       step: 4,
     },
   ];

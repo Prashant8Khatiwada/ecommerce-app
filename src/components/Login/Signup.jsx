@@ -27,14 +27,13 @@ const Signup = () => {
             </div>
 
             <div className="signup-buttons">
-
               <div className="next-inputs">
                 <label>Full Name</label>
                 <input placeholder="Please enter your full name" />
 
                 <div className="signup-checkbox">
-                <input type="checkbox" /> 
-                <label> I'd like to receive exclusive offers via SMS </label>
+                  <input type="checkbox" />
+                  <label> I'd like to receive exclusive offers via SMS </label>
                 </div>
               </div>
 

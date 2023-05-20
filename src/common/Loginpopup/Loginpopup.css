@@ -51,7 +51,6 @@
 }
 
 .button {
-
     align-self: center;
     width: 90%;
     background-color: rgb(233, 69, 96);
@@ -121,6 +120,7 @@ h5 {
 
 .sign-up span {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .forget-pwd {
