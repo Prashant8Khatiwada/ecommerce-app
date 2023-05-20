@@ -4,11 +4,16 @@ import { FiPlus } from "react-icons/fi";
 import { BiMinus } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 
-const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
+const Cart = ({ cartItem, addToCart, decreaseqty, setCardItems }) => {
   const totalprice = cartItem.reduce(
     (price, item) => price + item.qty * item.price,
     0
   );
+
+  const removeFromCart = (itemId) => {
+    const updatedCartItems = cartItem.filter((item) => item.id !== itemId);
+    setCardItems(updatedCartItems);
+  };
 
   // ========== FOR PROGRESS STEP ===========
   const [currentActive, setCurrentActive] = useState(1);
@@ -130,10 +135,7 @@ const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
 
                         {item.qty <= 1 ? ( // Disable button when qty is 1 or less
                           <div className="disable-sub-button">
-                            <BiMinus
-                              className="sub"
-                              onClick={() => decreaseqty(item)}
-                            />
+                            <BiMinus className="sub" />
                           </div>
                         ) : (
                           <div>

@@ -11,7 +11,6 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Login/Signup";
 import Productdescpage from "./components/Product_desc/Productpage";
 
-
 function App() {
   const { productItems } = Data;
   const { shopItems } = SData;
@@ -78,7 +77,12 @@ function App() {
             />
           </Route>
           <Route path="/cart" exact>
-            <Cart cartItem={cartItem} addToCart={addToCart} />
+            <Cart
+              cartItem={cartItem}
+              setCardItems={setCardItems}
+              addToCart={addToCart}
+              decreaseqty={decreaseqty}
+            />
           </Route>
           <Route path="/productdescription" exact>
             <Productdescpage />

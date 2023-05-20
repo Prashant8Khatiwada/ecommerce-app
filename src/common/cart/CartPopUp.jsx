@@ -7,7 +7,6 @@ import { BiMinus } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 function CartPopUp({
   cartpopupclose,
-  addtocart,
   decreaseqty,
   cartItem,
   setCardItems,
@@ -85,8 +84,12 @@ function CartPopUp({
 
         <div className="view-cart">
           <Link to="./Cart">
-            <button className="checkout" onClick={cartpopupclose}>Checkout Now</button>
-            <button className="view" onClick={cartpopupclose}>View Cart</button>
+            <button className="checkout" onClick={cartpopupclose}>
+              Checkout Now
+            </button>
+            <button className="view" onClick={cartpopupclose}>
+              View Cart
+            </button>
           </Link>
         </div>
       </div>
