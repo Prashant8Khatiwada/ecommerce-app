@@ -1,7 +1,10 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import "./Cart.css";
+import { FiPlus } from "react-icons/fi";
+import { BiMinus } from "react-icons/bi";
+import { RxCross2 } from "react-icons/rx";
 
-const Cart = ({ cartItem, addToCart, decreaseqty }) => {
+const Cart = ({ cartItem, addToCart, decreaseqty, removeFromCart }) => {
   const totalprice = cartItem.reduce(
     (price, item) => price + item.qty * item.price,
     0
@@ -32,7 +35,6 @@ const Cart = ({ cartItem, addToCart, decreaseqty }) => {
   };
 
   useEffect(() => {
-    
     const circles = document.querySelectorAll(".circle");
     const progress = document.getElementById("progress");
 
@@ -75,104 +77,101 @@ const Cart = ({ cartItem, addToCart, decreaseqty }) => {
 
   return (
     <>
+      {/* ========== FOR PROGRESS STEP =========== */}
+      <div className="cart-container">
+        <div className="progress-container">
+          <div className="progress" id="progress"></div>
+          {steps.map(({ step, label }) => (
+            <div className="circle">
+              {step}. {label}
+            </div>
+          ))}
+        </div>
 
-{/* ========== FOR PROGRESS STEP =========== */}
-<div className="container">
-      <div className="progress-container">
-        <div className="progress" id="progress"></div>
-        {steps.map(({ step, label }) => (
-          <div className="circle">
-            {step}. {label}
-          </div>
-        ))}
-      </div>
-      <button
-        className="btn"
-        id="prev"
-        disabled={currentActive === 1}
-        onClick={previousClick}
-      >
-        Prev
-      </button>
-      <button
-        className="btn"
-        id="next"
-        disabled={currentActive === 4}
-        onClick={nextClick}
-      >
-        Next
-      </button>
-    </div>
-
-
-
-      <section className="cart-items">
-       
-
-
-        <div className="container d_flex">
+        <section className="cart-function">
           {/*if no products in cart*/}
-          <div className="cart-details">
-            {cartItem.length === 0 && (
-              <h1 className="no-items product"> No items are added in cart</h1>
-            )}
+          {/* {cartItem.length === 0 && (
+                <h1 className="no-items ">
+                  {" "}
+                  No items are added in cart
+                </h1>
+              )} */}
 
-            {/*cart ma items xa bhane show garne kam yaha gariraxa*/}
+          {/*cart ma items xa bhane show garne kam yaha gariraxa*/}
+          <div className="cart-items">
             {cartItem.map((item) => {
               const productQty = item.price * item.qty;
-
               return (
-                <div className="cart-list product d_flex" key={item.id}>
-                  <div className="img">
-                    <img src={item.cover} alt="" />
-                  </div>
-                  <div className="cart-details">
-                    <h3>{item.name}</h3>
-                    <h4>
-                      ${item.price}.00 * {item.qty}
-                      <span>${productQty}.00</span>
-                    </h4>
-                  </div>
-                  <div className="cart-items-function">
-                    <div className="removeCart">
-                      <button className="removeCart">
-                        <i className="fa-solid fa-xmark"></i>
-                      </button>
-                    </div>
-                    {/* stpe: 5 
-                    quantity increase ra decrease garne
-                    */}
-                    <div className="cartControl d_flex">
-                      <button
-                        className="incCart"
-                        onClick={() => addToCart(item)}
-                      >
-                        <i className="fa-solid fa-plus"></i>
-                      </button>
-                      <button
-                        className="desCart"
-                        onClick={() => decreaseqty(item)}
-                      >
-                        <i className="fa-solid fa-minus"></i>
-                      </button>
-                    </div>
-                  </div>
+                <div className="cart-item" key={item.id}>
+                  {/* =====CART IMG===== */}
+                  <img src={item.cover} alt="" className="item-img" />
 
-                  <div className="cart-item-price"></div>
+                  {/* =====CART DETAILS===== */}
+                  <div className="item-contents">
+                    <div className="item-details">
+                      <h3>{item.name}</h3>
+                      <h5>
+                        ${item.price}.00 * {item.qty} =
+                        <span> ${productQty}.00</span>
+                      </h5>
+                    </div>
+                    {/* =====CART CONTROLS===== */}
+                    <div className="item-control">
+                      <div className="remove">
+                        <RxCross2
+                          onClick={() => removeFromCart(item.id)} // Call removeFromCart function with item id
+                        />
+                      </div>
+                      <div className="handle-item">
+                        <div>
+                          <FiPlus
+                            className="add"
+                            onClick={() => addToCart(item)}
+                          />
+                        </div>
+
+                        <span>{item.qty}</span>
+
+                        {item.qty <= 1 ? ( // Disable button when qty is 1 or less
+                          <div className="disable-sub-button">
+                            <BiMinus
+                              className="sub"
+                              onClick={() => decreaseqty(item)}
+                            />
+                          </div>
+                        ) : (
+                          <div>
+                            <BiMinus
+                              className="sub"
+                              onClick={() => decreaseqty(item)}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}
+            <button
+              className="btn"
+              id="prev"
+              disabled={currentActive === 1}
+              onClick={previousClick}
+            >
+              Previous
+            </button>
+            <button
+              className="btn"
+              id="next"
+              disabled={currentActive === 4}
+              onClick={nextClick}
+            >
+              Next
+            </button>
           </div>
-
-          <div className="cart-total product">
-            <h2>Cart Summary</h2>
-            <div className=" d_flex">
-              <h4>Total Price :</h4>
-              <h3>${totalprice}.00</h3>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 };
