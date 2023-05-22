@@ -1,0 +1,21 @@
+.shipping-form {
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    gap: 1rem;
+    font-size: .8rem;
+}
+
+.shipping-form span {
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.shipping-form input {
+    width: 80%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
