@@ -1,21 +1,76 @@
+.shipping-contents {
+    margin-bottom: 1.3rem;
+    background-color: #fff;
+    padding: .5rem 1rem;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 5px;
+}
+
+.shipping-contents h3 {
+    text-align: center;
+}
+
+.shipping-contents hr {
+    border: 1px solid #d3d3d3;
+    margin-top: 5px;
+}
+
 .shipping-form {
     padding: 1rem 2rem;
     display: grid;
     grid-template-columns: repeat(2, 4fr);
     gap: 1rem;
     font-size: .8rem;
+
 }
 
 .shipping-form span {
-
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.shipping-form input {
-    width: 80%;
+.shipping-form input,
+.shipping-form select {
+    border: 1px solid #d3d3d3;
+    width: 90%;
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: .9rem;
     border-radius: 5px;
+}
+
+.shipping-form select {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    opacity: .6;
+}
+
+.shipping-form select:focus {
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.shipping-form select option {
+    padding: 8px;
+}
+
+.save {
+    position: relative;
+    left: 70%;
+    margin-top: 2rem;
+    border-radius: 5px;
+    background-color: #e94560;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 30%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid #e94560;
+    transition: 0.2s all ease;
+}
+
+.save:hover {
+    background-color: #fff;
+    border: 2px solid #d3d3d3;
 }
