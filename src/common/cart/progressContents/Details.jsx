@@ -1,12 +1,14 @@
 import React from "react";
 import "./details.css";
 
-function Details() {
+function Details({ totalprice }) {
+  const sellingPrice = totalprice + 50 - 40;
+
   return (
     <div className="shipping-contents">
-      <h3>Shipping Address</h3>
-      <hr />
       <div className="shipping-fill">
+        <h3>Shipping Address</h3>
+        <hr />
         <div className="shipping-form">
           <span>
             <label htmlFor="">Full Name</label>
@@ -57,7 +59,22 @@ function Details() {
         </div>
       </div>
 
-      {/* <div className="total-price">includes shipping costs</div> */}
+      <div className="sub-total">
+        <h4>
+          <label> Subtotal:</label> <span>${totalprice}.00</span>
+        </h4>
+        <h4>
+          <label> Shipping:</label> <span>$50.00</span>
+        </h4>
+        <h4>
+          <label> Discount:</label> <span>$40.00</span>
+        </h4>
+        <h4>
+          <h3> Total-Amount:</h3> <h3>${sellingPrice}.00</h3>
+        </h4>
+
+        <button className="proceed-payment">Proceed Payments</button>
+      </div>
     </div>
   );
 }

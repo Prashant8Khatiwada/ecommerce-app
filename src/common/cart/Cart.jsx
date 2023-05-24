@@ -69,10 +69,6 @@ const Cart = ({ cartItem, addToCart, decreaseqty, setCardItems }) => {
       step: 2,
     },
     {
-      label: "Payment",
-      step: 3,
-    },
-    {
       label: "Review",
       step: 4,
     },
@@ -119,7 +115,9 @@ const Cart = ({ cartItem, addToCart, decreaseqty, setCardItems }) => {
             )}
 
             {/*if cartItem exists and currentActive is 2*/}
-            {cartItem.length > 0 && currentActive === 2 && <Details />}
+            {cartItem.length > 0 && currentActive === 2 && (
+              <Details totalprice={totalprice} />
+            )}
 
             <button
               className="btn"
@@ -139,7 +137,10 @@ const Cart = ({ cartItem, addToCart, decreaseqty, setCardItems }) => {
             </button>
           </div>
 
-          <div className="total-price">
+          <div
+            className="total-price"
+            style={{ display: currentActive > 1 && "none" }}
+          >
             <div className="header">
               <h2>Cart Summary</h2>
               <hr />

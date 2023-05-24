@@ -1,9 +1,17 @@
 .shipping-contents {
+    gap: 2rem;
+    width: 71vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shipping-fill {
+    width: 65%;
     margin-bottom: 1.3rem;
-    background-color: #fff;
     padding: .5rem 1rem;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     border-radius: 5px;
+    background-color: #fff;
 }
 
 .shipping-contents h3 {
@@ -71,6 +79,46 @@
 }
 
 .save:hover {
+    background-color: #fff;
+    border: 2px solid #d3d3d3;
+}
+
+.sub-total {
+    width: 30%;
+    height: fit-content;
+    background-color: #ffff;
+    border-radius: 10px;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+
+.sub-total label {
+    opacity: 0.5;
+}
+
+.sub-total h4 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.proceed-payment {
+    margin-top: 2rem;
+    align-self: center;
+    border-radius: 5px;
+    background-color: #e94560;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid #e94560;
+    transition: 0.2s all ease;
+}
+
+.proceed-payment:hover {
     background-color: #fff;
     border: 2px solid #d3d3d3;
 }
